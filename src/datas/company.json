@@ -1,0 +1,36 @@
+{
+  "company": {
+    "companyInformations": {
+      "address": "32 rue de Cambrai",
+      "phoneNumber": "0612345678",
+      "mail": "dropteam@dropteam.fr"
+    },
+    "services": [
+      {
+        "id": 0,
+        "name": "Développement Web",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa cumque distinctio dolorem earum,\n        fugiat nam nesciunt nihil perferendis perspiciatis praesentium quis quod recusandae reiciendis sequi sit ut,\n        veritatis vero."
+      },
+      {
+        "id": 1,
+        "name": "Accompagnement Clients",
+        "description": "Accompagner le client de A à Z dans son projet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa cumque distinctio dolorem earum,\n        fugiat nam nesciunt nihil perferendis perspiciatis praesentium quis quod recusandae reiciendis sequi sit ut,\n        veritatis vero."
+      },
+      {
+        "id": 2,
+        "name": "Conseiller votre projet",
+        "description": "Conseiller le client sur la méthode de travail à adopter ainsi que Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa cumque distinctio dolorem earum,\n        fugiat nam nesciunt nihil perferendis perspiciatis praesentium quis quod recusandae reiciendis sequi sit ut,\n        veritatis vero."
+      },
+      {
+        "id": 3,
+        "name": "Sécurité et Devops",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa cumque distinctio dolorem earum,\n        fugiat nam nesciunt nihil perferendis perspiciatis praesentium quis quod recusandae reiciendis sequi sit ut,\n        veritatis vero.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa cumque distinctio dolorem earum,\n        fugiat nam nesciunt nihil perferendis perspiciatis praesentium quis quod recusandae reiciendis sequi sit ut,\n        veritatis vero."
+      },
+      {
+        "id": 4,
+        "name": "Gestion et Marketing",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa cumque distinctio dolorem earum,\n        fugiat nam nesciunt nihil perferendis perspiciatis praesentium quis quod recusandae reiciendis sequi sit ut,\n        veritatis vero.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa cumque distinctio dolorem earum,\n        fugiat nam nesciunt nihil perferendis perspiciatis praesentium quis quod recusandae reiciendis sequi sit ut,\n        veritatis vero."
+      }
+    ]
+  }
+}

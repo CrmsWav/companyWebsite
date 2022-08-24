@@ -1,0 +1,92 @@
+.tableContainer {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    background: #fff;
+    background: rgba(25, 118, 210, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+}
+
+caption{
+    margin: 5% 0;
+}
+
+table td, table th {
+    text-align: left;
+    padding: 10px 10px;
+}
+
+table thead tr{
+    height: 60px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: unset;
+}
+
+table tbody tr {
+    height: 50px;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+thead tr{
+    height: 60px;
+}
+
+thead tr th{
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: bold;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    background-color: whitesmoke;
+}
+
+tbody tr {
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: unset;
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+    color: gray;
+    margin: 8px 0;
+}
+
+tfoot tr th{
+    padding: 10px 0 10px 8px;
+    font-weight: bolder;
+}
+
+tfoot td{
+    text-align: center;
+}
+
+tr{
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+}

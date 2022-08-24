@@ -19,8 +19,7 @@ const numberOfSlides = (maxVisibleSlides: number, windowWidth: number) => {
   return 2;
 };
 
-const Slider: React.FC<SliderProps> = ({
-                                         children,
+const Index: React.FC<SliderProps> = ({  children,
                                          zoomFactor,
                                          slideMargin,
                                          maxVisibleSlides,
@@ -30,7 +29,7 @@ const Slider: React.FC<SliderProps> = ({
   const [transformValue, setTransformValue] = useState(`-${zoomFactor / 2}%`);
   const [scrollSize, setScrollSize] = useState(0);
 
-  const sliderRef = useRef<HTMLElement>(null);
+  const sliderRef = useRef<HTMLHeadingElement>(null);
 
   const visibleSlides = numberOfSlides(maxVisibleSlides, scrollSize);
   // Pages start at 0, therefore -1 at the end here
@@ -41,7 +40,7 @@ const Slider: React.FC<SliderProps> = ({
     const resizeObserver = new ResizeObserver(entries => {
       setScrollSize(entries[0].contentRect.width);
     });
-    resizeObserver.observe(sliderRef.current);
+    // resizeObserver.observe(sliderRef.current);
   }, [sliderRef]);
 
   // Position slider on resize
@@ -130,4 +129,4 @@ const Slider: React.FC<SliderProps> = ({
   );
 };
 
-export default Slider;
+export default Index;

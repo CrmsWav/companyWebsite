@@ -6,9 +6,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 // Types
-import { Character } from './Carousel2';
+import { User } from './Carousel';
 
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   root: {
@@ -20,36 +20,36 @@ const useStyles = makeStyles({
 });
 
 type Props = {
-  character: Character;
+  user: User;
 };
 
-const CharacterCard: React.FC<Props> = ({ character }) => {
+const UserCard: React.FC<Props> = ({ user }) => {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
-      <CardMedia className={classes.media} image={character.img_url} />
+      <CardMedia className={classes.media} image={user.img_url} />
       <CardContent>
         <Typography gutterBottom variant='h5'>
-          Name: {character.name}
+          Name: {user.name}
         </Typography>
         <Typography gutterBottom color='textSecondary'>
-          Hair: {character.hair}
+          Hair: {user.hair}
           <br />
-          Origin: {character.origin}
+          Origin: {user.origin}
           <br />
-          Species: {character.species}
+          Species: {user.species}
           <br />
-          Status: {character.status}
+          Status: {user.status}
           <br />
           Alias:
           <br />
         </Typography>
-        {character.alias.map((alias: any) => (
+        {user.alias.map((alias: any) => (
           <Chip key={alias} style={{ margin: 3 }} size='small' label={alias} />
         ))}
         <Typography color='textSecondary'>Abilities:</Typography>
-        {character.abilities.map((ability: any) => (
+        {user.abilities.map((ability: any) => (
           <Chip
             key={ability}
             style={{ margin: 3 }}
@@ -62,4 +62,4 @@ const CharacterCard: React.FC<Props> = ({ character }) => {
   );
 };
 
-export default CharacterCard;
+export default UserCard;
