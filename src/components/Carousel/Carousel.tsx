@@ -1,72 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import Dialog from '@mui/material/Dialog';
-// Components
-import Slider from './Slider';
-import UserCard from './UserCard';
+import React from 'react';
+import UserCard from "./UserCard";
+import styled from "styled-components";
 
-const SliderProps = {
-  zoomFactor: 30, // How much the image should zoom on hover in percent
-  slideMargin: 10, // Margin on each side of slides
-  maxVisibleSlides: 5,
-  pageTransition: 500 // Transition when flipping pages
-};
+interface CarouselProps {
 
-// Types
-export type User = {
-  abilities: string[];
-  alias: string[];
-  gender: string;
-  hair: string;
-  id: number;
-  img_url: string;
-  name: string;
-  origin: string;
-  species: string;
-  status: string;
-};
+}
 
-const App: React.FC = () => {
-  const [data, setData] = useState<User[]>([]);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [activeUser, setActiveUser] = useState<User>(
-    {} as User
-  );
+const CarouselContainer = styled.div``;
 
-  const handleDialogOpen = (user: User) => {
-    setIsDialogOpen(true);
-    setActiveUser(user);
-  };
+const CardContainer = styled.div`
+  background-color: #cccccc;
+  border-radius: 10px;
+  margin: 50px;
+  padding: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+`;
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await (
-        await fetch('https://finalspaceapi.com/api/v0/character/')
-      ).json();
-      setData(data);
-    };
-
-    getData();
-  }, []);
-
-  console.log(data);
-
-  if (data.length < 1) return <div>Loading ...</div>;
-
+const Carousel: React.FC<CarouselProps> = () => {
   return (
-    <>
-      <Dialog onClose={() => setIsDialogOpen(false)} open={isDialogOpen}>
-        <UserCard user={activeUser} />
-      </Dialog>
+    <CarouselContainer>
+      <CardContainer>
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+      </CardContainer>
+    </CarouselContainer>
+  )
+}
 
-      <Slider {...SliderProps}>
-        {data.map(user => (
-          <div key={user.id} onClick={() => handleDialogOpen(user)}>
-            <img src={user.img_url} alt='user' />
-          </div>
-        ))}
-      </Slider>
-    </>
-  );
-};
-
-export default App;
+export default Carousel;

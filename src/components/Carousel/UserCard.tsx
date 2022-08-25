@@ -1,65 +1,50 @@
 import React from 'react';
-// Components
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Chip from '@mui/material/Chip';
-import Typography from '@mui/material/Typography';
-// Types
-import { User } from './Carousel';
+import styled from "styled-components";
+import datas from "../../datas/company.json";
 
-import { makeStyles } from "@mui/styles";
+interface UserCardProps {
 
-const useStyles = makeStyles({
-  root: {
-    width: 320
-  },
-  media: {
-    height: 150
-  }
-});
+}
 
-type Props = {
-  user: User;
-};
+const UserCardContainer = styled.div`
+  background-color: #1976d2;
+  border-radius: 10px;
+  margin: 0 50px;
+  padding: 1.5% 3%;
+  font-size: small;
+`;
 
-const UserCard: React.FC<Props> = ({ user }) => {
-  const classes = useStyles();
+const Location = styled.p`
+  font-weight: bold;
+`;
+
+const Avatar = styled.img`
+  border-radius: 10px;
+`;
+
+const UserCard: React.FC<UserCardProps> = () => {
+  const usersDatas = datas.company.users;
+  console.log("usersDatas => ", usersDatas);
 
   return (
-    <Card className={classes.root}>
-      <CardMedia className={classes.media} image={user.img_url} />
-      <CardContent>
-        <Typography gutterBottom variant='h5'>
-          Name: {user.name}
-        </Typography>
-        <Typography gutterBottom color='textSecondary'>
-          Hair: {user.hair}
-          <br />
-          Origin: {user.origin}
-          <br />
-          Species: {user.species}
-          <br />
-          Status: {user.status}
-          <br />
-          Alias:
-          <br />
-        </Typography>
-        {user.alias.map((alias: any) => (
-          <Chip key={alias} style={{ margin: 3 }} size='small' label={alias} />
-        ))}
-        <Typography color='textSecondary'>Abilities:</Typography>
-        {user.abilities.map((ability: any) => (
-          <Chip
-            key={ability}
-            style={{ margin: 3 }}
-            size='small'
-            label={ability}
-          />
-        ))}
-      </CardContent>
-    </Card>
-  );
-};
+    <>
+      {usersDatas.map((user, index) => {
+        return (
+          <UserCardContainer>
+            <h2>{user.name}</h2>
+
+            <Avatar src={user.avatar} alt="Avatar" />
+
+            <h3>{user.designation}</h3>
+
+            <p>{user.message}</p>
+
+            <Location>{user.location}</Location>
+          </UserCardContainer>
+        )
+      })}
+    </>
+  )
+}
 
 export default UserCard;
