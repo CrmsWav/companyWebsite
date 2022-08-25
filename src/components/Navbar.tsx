@@ -7,14 +7,9 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
-
-const userId = '1';
-const myAccountId = '1';
+import { Link, NavLink } from 'react-router-dom';
 
 const pages = [
   {id: 0, name: 'Acceuil', path: ""},
@@ -23,34 +18,20 @@ const pages = [
   {id: 3, name: 'Équipe', path: "team"},
   {id: 4, name: 'Contacts', path: "contacts"}
 ];
-const settings = [
-  {id: 0, name: 'Profil', path: `profile/${userId}`},
-  {id: 1, name: 'Compte', path: `accounts/${myAccountId}`},
-  {id: 2, name: 'Tableau de bord', path: "dashboard"},
-  {id: 3, name: 'Déconnexion', path: "logout"},
-];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="fixed">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
@@ -92,7 +73,9 @@ const NavBar = () => {
               {pages.map((page) => (
                 <MenuItem key={page.id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
+                    <NavLink to={`/${page.path}`} style={{textDecoration: 'none', color: 'black'}}>
                       {page.name}
+                    </NavLink>
                   </Typography>
                 </MenuItem>
               ))}
@@ -105,52 +88,18 @@ const NavBar = () => {
             </Link>
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', margin: '5px 0 0 0' } }}>
             {pages.map((page) => (
-              <Link to={`/${page.path}`}>
                 <Button
                   key={page.id}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block', textDecoration: 'none' }}
                 >
+                  <NavLink to={`/${page.path}`} style={{textDecoration: 'none', color: 'whitesmoke'}}>
                     {page.name}
+                  </NavLink>
                 </Button>
-              </Link>
             ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <Link to={`/${setting.path}`}>
-                  <MenuItem key={setting.id} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">
-                      {setting.name}
-                    </Typography>
-                  </MenuItem>
-                </Link>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>

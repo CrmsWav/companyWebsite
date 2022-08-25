@@ -8,7 +8,6 @@ interface TitleProps {
 const Title = styled.h1`
   display: flex;
   justify-content: center;
-  margin-top: 70px;
 `;
 
 const PagesTitle: React.FC<TitleProps> = ({name}) => {

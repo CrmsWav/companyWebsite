@@ -29,7 +29,7 @@ const Index: React.FC<SliderProps> = ({  children,
   const [transformValue, setTransformValue] = useState(`-${zoomFactor / 2}%`);
   const [scrollSize, setScrollSize] = useState(0);
 
-  const sliderRef = useRef<HTMLHeadingElement>(null);
+  const sliderRef = useRef<HTMLElement | null>(null);
 
   const visibleSlides = numberOfSlides(maxVisibleSlides, scrollSize);
   // Pages start at 0, therefore -1 at the end here

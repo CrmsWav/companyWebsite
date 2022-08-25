@@ -1,0 +1,43 @@
+.ContactForm .textFieldContainer .TextField {
+    margin: 0 10px;
+}
+
+.ContactForm .textFieldContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ContactForm .TextareaAutosize {
+    margin: 5% 0;
+    border-radius: 10px;
+}
+
+.InformationsContainer{
+    display: flex;
+    justify-content: start;
+}
+
+@media (max-width: 982px) {
+    .InformationsContainer{
+        display: flex;
+        justify-content: center;
+    }
+
+    .InformationsContainer .Informations{
+        margin-right: 0;
+    }
+
+    .ContactForm .textFieldContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+    }
+
+    .ContactForm .textFieldContainer .TextField {
+        width: 100%;
+        margin: 5% 0;
+    }
+}
